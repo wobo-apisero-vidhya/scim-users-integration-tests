@@ -1,4 +1,4 @@
-# SCIM API test framework
+# SCIM USER API test framework
 
 ## Libraries and plugins used
 
