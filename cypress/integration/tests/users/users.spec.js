@@ -1,38 +1,47 @@
 /// <reference types="cypress" />
 
-describe('Post API', () => {
-  it('should add a new post successfully', () => {
+import { routes } from "../../../config/routes";
+import auth from "../../../fixtures/auth";
+import {createRequestBody} from "../../../fixtures/request/user";
+
+describe("User API", () => {
+  it("should add a new user successfully", () => {
     cy.api({
-      method: 'POST',
-      url: '/scim/Users',
-      auth: {bearer: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJXT1JLQk9BUkRJTkM6XC9cL1wvd2IiLCJhdWQiOlsiXC9hcGlzXC9zY2ltIl0sImlhdCI6MTY0Mjc0MjgxMywic3ViIjoic2NpbTp0b2tlbjpPRFE0TmpNNE56VTVOVE01T1ElM0QlM0QiLCJ0ZW5hbnRJZCI6ImRlZmF1bHQiLCJhZG1pbiI6Ik56azVOVFkxTkRNeE1nJTNEJTNEIn0.h76r_cSlKFtyJ4PfyOOQP2kJ4MqpK79rChCiQ9M_Ghlm2RR3BQRvZxOqp0Oqc2kjcN7-iEdhU6lMZ_0_S-kZy58IBmVQp72ciHLfu52cRF9osP8J95ilbIuyUscKfnPS4n3X7hmAl8dIwrm8GfNRN69AeJPpaZ_ADv8-OGUOTl8'},
-      body: {
-        schemas: [
-            "urn:ietf:params:scim:schemas:core:2.0:User",
-            "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
-        externalId: "0a21f0f2-8d2a-4f8e-bf98-7363c4aed4ef",
-        userName: "john.doe@workboard.com",
-        active: true,
-        emails: [{
-            "primary": true,
-            "type": "work",
-            "value": "john.doe@workboard.com"
-        }],
-        meta: {
-            "resourceType": "User"
-        },
-        name: {
-            "formatted": "givenName familyName",
-            "familyName": "Doe",
-            "givenName": "John"
-        },
-        roles: []
-    },
+      method: "POST",
+      url: routes.POST,
+      auth: auth,
+      body: createRequestBody,
     }).then((response) => {
       expect(response.status).to.equal(201);
-      expect(response.body.id).to.equal('55');
+      expect(response.body.id).to.equal("55");
     });
   });
+
+  it('Get user by UserID', () => {
+    cy.api({
+      method: 'GET',
+      url: routes.GET,
+      auth: auth,
+    }).then((response) => {
+      expect(response.status).to.equal(200);
+      expect(response.body).to.exist;
+      expect(response.body[0].id).to.equal('1');
+      expect(response.body[0].userName).to.equal("wobo-employee1@wobodev.com");
+    });
+  });
+  
+  it('Get user by filter', () => {
+    cy.api({
+      method: 'GET',
+      url: routes.GET_FILTER,
+      auth: auth,
+    }).then((response) => {
+      expect(response.status).to.equal(200);
+      expect(response.body.Resources).to.exist;
+      expect(response.body.Resources[0].id).to.equal('1');
+     });
+  });
+
 });
 
 describe('PATCH API :: Update User', () => {
