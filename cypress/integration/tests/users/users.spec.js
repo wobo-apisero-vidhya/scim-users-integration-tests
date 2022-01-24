@@ -1,7 +1,5 @@
 /// <reference types="cypress" />
 
-const randomEmail = require("random-email");
-
 describe('Post API', () => {
   it('should add a new post successfully', () => {
     cy.api({
@@ -42,7 +40,7 @@ describe('PATCH API :: Update User', () => {
     
     cy.api({
       method: 'PATCH', 
-      url: 'scim/Users/9',
+      url: 'scim/Users/55',
       auth: {
         bearer: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJXT1JLQk9BUkRJTkM6XC9cL1wvd2IiLCJhdWQiOlsiXC9hcGlzXC9zY2ltIl0sImlhdCI6MTY0Mjc0MjgxMywic3ViIjoic2NpbTp0b2tlbjpPRFE0TmpNNE56VTVOVE01T1ElM0QlM0QiLCJ0ZW5hbnRJZCI6ImRlZmF1bHQiLCJhZG1pbiI6Ik56azVOVFkxTkRNeE1nJTNEJTNEIn0.h76r_cSlKFtyJ4PfyOOQP2kJ4MqpK79rChCiQ9M_Ghlm2RR3BQRvZxOqp0Oqc2kjcN7-iEdhU6lMZ_0_S-kZy58IBmVQp72ciHLfu52cRF9osP8J95ilbIuyUscKfnPS4n3X7hmAl8dIwrm8GfNRN69AeJPpaZ_ADv8-OGUOTl8"
       },
@@ -51,23 +49,24 @@ describe('PATCH API :: Update User', () => {
         "Operations": [
                 {
                 "op": "Replace",
-                "path": "emails[type eq \"work\"].value",
-                "value": randomEmail({domain: "workboard.com"})
+                "path": "name.givenName",
+                "value": "Kiba"
                 },
                 {
                 "op": "Replace",
                 "path": "name.familyName",
-                "value": "Doe"
+                "value": "Shinu"
                 }
         ]
     } 
     }).then((res) => {
       expect(res.status).to.equal(200);
       expect(res.body).to.not.be.null;
-      expect(res.body.id).to.equal('9');
+      expect(res.body.id).to.equal('55');
       expect(res.body.name.familyName).to.exist;
-      expect(res.body.name.familyName).to.equal("Doe");
-      expect(res.body.emails).to.exist;
+      expect(res.body.name.familyName).to.equal("Shinu");
+      expect(res.body.name.givenName).to.exist;
+      expect(res.body.name.givenName).to.equal("Kiba");
     });
   });
 });
@@ -77,7 +76,7 @@ describe('PATCH API :: Disable User', () => {
     
     cy.api({
       method: 'PATCH', 
-      url: 'scim/Users/9/',
+      url: 'scim/Users/55/',
       auth: {
         bearer: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJXT1JLQk9BUkRJTkM6XC9cL1wvd2IiLCJhdWQiOlsiXC9hcGlzXC9zY2ltIl0sImlhdCI6MTY0Mjc0MjgxMywic3ViIjoic2NpbTp0b2tlbjpPRFE0TmpNNE56VTVOVE01T1ElM0QlM0QiLCJ0ZW5hbnRJZCI6ImRlZmF1bHQiLCJhZG1pbiI6Ik56azVOVFkxTkRNeE1nJTNEJTNEIn0.h76r_cSlKFtyJ4PfyOOQP2kJ4MqpK79rChCiQ9M_Ghlm2RR3BQRvZxOqp0Oqc2kjcN7-iEdhU6lMZ_0_S-kZy58IBmVQp72ciHLfu52cRF9osP8J95ilbIuyUscKfnPS4n3X7hmAl8dIwrm8GfNRN69AeJPpaZ_ADv8-OGUOTl8"
       },
@@ -96,7 +95,7 @@ describe('PATCH API :: Disable User', () => {
     }).then((res) => {
       expect(res.status).to.equal(200);
       expect(res.body).to.not.be.null;
-      expect(res.body.id).to.equal('9');
+      expect(res.body.id).to.equal('55');
       expect(res.body.active).to.exist;
       expect(res.body.active).to.equal(false);
     });
@@ -108,14 +107,14 @@ describe('DELETE API :: Delete User', () => {
     
     cy.api({
       method: 'DELETE', 
-      url: 'scim/Users/9',
+      url: 'scim/Users/55',
       auth: {
         bearer: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJXT1JLQk9BUkRJTkM6XC9cL1wvd2IiLCJhdWQiOlsiXC9hcGlzXC9zY2ltIl0sImlhdCI6MTY0Mjc0MjgxMywic3ViIjoic2NpbTp0b2tlbjpPRFE0TmpNNE56VTVOVE01T1ElM0QlM0QiLCJ0ZW5hbnRJZCI6ImRlZmF1bHQiLCJhZG1pbiI6Ik56azVOVFkxTkRNeE1nJTNEJTNEIn0.h76r_cSlKFtyJ4PfyOOQP2kJ4MqpK79rChCiQ9M_Ghlm2RR3BQRvZxOqp0Oqc2kjcN7-iEdhU6lMZ_0_S-kZy58IBmVQp72ciHLfu52cRF9osP8J95ilbIuyUscKfnPS4n3X7hmAl8dIwrm8GfNRN69AeJPpaZ_ADv8-OGUOTl8"
       }
     }).then((res) => {
       expect(res.status).to.equal(200);
       expect(res.body).to.not.be.null;
-      expect(res.body.id).to.equal('9');
+      expect(res.body.id).to.equal('55');
     });
   });
 });
