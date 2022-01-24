@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "cy:test": "cypress run",
-    "cy:open": "cypress open"
+    "cy:test-browser": "cypress run --browser chrome",
+    "cy:open": "cypress open",
+    "cy:open-browser": "cypress open --browser chrome"
   },
   "devDependencies": {
     "@bahmutov/cy-api": "^1.6.2",
