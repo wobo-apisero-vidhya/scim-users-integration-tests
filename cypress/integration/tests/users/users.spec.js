@@ -2,9 +2,9 @@
 
 import { routes } from "../../../config/routes";
 import auth from "../../../fixtures/auth";
-import {createRequestBody} from "../../../fixtures/request/user";
+import { createRequestBody } from "../../../fixtures/request/user";
 
-describe("User API", () => {
+describe("POST :: create user", () => {
   it("should add a new user successfully", () => {
     cy.api({
       method: "POST",
@@ -16,7 +16,9 @@ describe("User API", () => {
       expect(response.body.id).to.equal("55");
     });
   });
+});
 
+describe('GET :: get User', () => {
   it('Get user by UserID', () => {
     cy.api({
       method: 'GET',
@@ -41,10 +43,9 @@ describe("User API", () => {
       expect(response.body.Resources[0].id).to.equal('1');
      });
   });
+})
 
-});
-
-describe('PATCH API :: Update User', () => {
+describe('PATCH :: Update User', () => {
   it('Performs all the updates successfully', () => {
     
     cy.api({
@@ -80,7 +81,7 @@ describe('PATCH API :: Update User', () => {
   });
 });
 
-describe('PATCH API :: Disable User', () => {
+describe('PATCH  :: Disable User', () => {
   it('Disables the user successfully', () => {
     
     cy.api({
@@ -111,7 +112,7 @@ describe('PATCH API :: Disable User', () => {
   });
 });
 
-describe('DELETE API :: Delete User', () => {
+describe('DELETE  :: Delete User', () => {
   it('Deletes a user successfully', () => {
     
     cy.api({
