@@ -21,4 +21,33 @@ const createRequestBody = {
     roles: []
 }
 
-export {createRequestBody}
+const updateRequestBody = {
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [
+            {
+            "op": "Replace",
+            "path": "name.givenName",
+            "value": "Kiba"
+            },
+            {
+            "op": "Replace",
+            "path": "name.familyName",
+            "value": "Shinu"
+            }
+    ]
+}
+
+const disableRequestBody = {
+    "Operations": [
+        {
+            "op": "Replace",
+            "path": "active",
+            "value": false
+        }
+    ],
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ]
+}
+
+export {createRequestBody, updateRequestBody, disableRequestBody}
