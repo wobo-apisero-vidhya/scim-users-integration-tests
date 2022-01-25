@@ -18,6 +18,17 @@ describe('DELETE :: Delete User', () => {
     });
   });
 
+
+  it('Delete non existing user', () => {   
+    cy.api({
+      method: 'DELETE', 
+      url: routes.DELETE,
+      auth: auth,
+    }).then((res) => {
+      expect(res.status).to.equal(400);
+    });
+  });
+
   it('DELETE with invalid token', () => {
     cy.api({
       method: 'DELETE',
