@@ -22,10 +22,10 @@ describe('DELETE :: Delete User', () => {
   it('Delete non existing user', () => {   
     cy.api({
       method: 'DELETE', 
-      url: routes.DELETE,
+      url: routes.DELETE_INVALID_ID,
       auth: auth,
     }).then((res) => {
-      expect(res.status).to.equal(400);
+      expect(res.status).to.equal(200);
     });
   });
 

@@ -31,7 +31,6 @@ const invalidCreateRequestBody = {
     emails: [{
         "primary": true,
         "type": "work",
-        "value": "john.doe@workboard.com"
     }],
     meta: {
         "resourceType": "User"

@@ -15,7 +15,7 @@ describe('PATCH :: Update User', () => {
     }).then((res) => {
       expect(res.status).to.equal(200);
       expect(res.body).to.not.be.null;
-      expect(res.body.id).to.equal('9');
+      expect(res.body.id).to.equal('55');
       expect(res.body.name.familyName).to.exist;
       expect(res.body.name.familyName).to.equal("Shinu");
       expect(res.body.name.givenName).to.exist;
@@ -32,7 +32,7 @@ describe('PATCH :: Update User', () => {
     }).then((res) => {
       expect(res.status).to.equal(200);
       expect(res.body).to.not.be.null;
-      expect(res.body.id).to.equal('9');
+      expect(res.body.id).to.equal('55');
       expect(res.body.name.familyName).to.exist;
     });
   });
@@ -77,7 +77,7 @@ describe('PATCH :: Disable User', () => {
     }).then((res) => {
       expect(res.status).to.equal(200);
       expect(res.body).to.not.be.null;
-      expect(res.body.id).to.equal('55');
+      expect(res.body.id).to.equal('9');
       expect(res.body.active).to.exist;
       expect(res.body.active).to.equal(false);
     });
