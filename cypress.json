@@ -1,3 +1,4 @@
 {
-  "baseUrl": "http://localhost/wb/apis" 
+  "baseUrl": "http://localhost/wb/apis" ,
+  "authType" : "basic" 
 }
