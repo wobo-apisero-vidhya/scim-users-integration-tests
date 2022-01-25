@@ -18,15 +18,16 @@ describe('DELETE :: Delete User', () => {
     });
   });
 
-  it('Delete - unsuccessful response', () => {   
+  it('DELETE with invalid token', () => {
     cy.api({
-      method: 'DELETE', 
-      url: routes.DELETE_INVALID_ID,
-      auth: auth,
-    }).then((res) => {
-      expect(res.status).to.equal(200);
-      expect(res.body).to.not.be.null;
-      expect(res.body.id).to.equal('55');
+      method: 'DELETE',
+      url: routes.DELETE,
+      //auth: auth,
+      failOnStatusCode: false,
+    }).then((response) => {
+      expect(response.status).to.equal(401);
+      expect(response.body).to.exist;
     });
   });
+
 });
