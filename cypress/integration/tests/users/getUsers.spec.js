@@ -3,17 +3,30 @@
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
 
+let userId = 0;
+
+before('fetch the newly created test user', () => {
+  cy.api({
+    method: 'GET',
+    url: routes.GET_FILTER,
+    auth: auth,
+  }).then((response) => {
+    userId = response.body.Resources[0].id;
+   });
+});
+
 describe('GET :: get User', () => {
   it('Get user by UserID', () => {
     cy.api({
       method: 'GET',
-      url: routes.GET_BY_ID,
+      url: routes.GET_BY_ID + userId,
       auth: auth,
     }).then((response) => {
+      console.log(response.body)
       expect(response.status).to.equal(200);
       expect(response.body).to.exist;
-      expect(response.body[0].id).to.equal('1');
-      expect(response.body[0].userName).to.equal("wobo-employee1@wobodev.com");
+      expect(response.body.id).to.equal(userId);
+      expect(response.body.userName).to.equal("john.doe@workboard.com");
     });
   });
 
@@ -35,6 +48,7 @@ describe('GET :: get User', () => {
       auth: auth,
     }).then((response) => {
       expect(response.status).to.equal(200);
+      expect(response.body.Resources[0].id).to.equal('56');
       expect(response.body.Resources).to.exist;
      });
   });
@@ -42,7 +56,7 @@ describe('GET :: get User', () => {
   it('Get user by UserID - invalid token', () => {
     cy.api({
       method: 'GET',
-      url: routes.GET_BY_ID,
+      url: routes.GET_BY_ID + userId,
       //auth: auth,
       failOnStatusCode: false,
     }).then((response) => {
