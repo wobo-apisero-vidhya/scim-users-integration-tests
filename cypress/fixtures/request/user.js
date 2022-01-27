@@ -59,7 +59,7 @@ const updateRequestBody = {
     ]
 }
 
-const updateEmailRequestBodyNeg = {
+const updateEmailRequestBody = {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
     "Operations": [
             {
@@ -83,4 +83,4 @@ const disableRequestBody = {
     ]
 }
 
-export {createRequestBody, updateRequestBody, invalidCreateRequestBody, updateEmailRequestBodyNeg, disableRequestBody}
+export {createRequestBody, updateRequestBody, invalidCreateRequestBody, updateEmailRequestBody, disableRequestBody}

@@ -2,7 +2,7 @@
 
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { disableRequestBody, updateRequestBody, updateEmailRequestBodyNeg } from "../../../fixtures/request/user";
+import { disableRequestBody, updateRequestBody, updateEmailRequestBody } from "../../../fixtures/request/user";
 
 let userId = 0;
 
@@ -40,7 +40,7 @@ describe('PATCH :: Update User', () => {
       url: routes.UPDATE + (userId-1),
       auth: auth,
       failOnStatusCode: false,
-      body: updateEmailRequestBodyNeg
+      body: updateEmailRequestBody
     }).then((res) => {
       expect(res.status).to.equal(400);
       expect(res.body.detail).to.equal("Resource email address is invalid, it already exists in the system!")
