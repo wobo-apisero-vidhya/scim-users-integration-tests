@@ -2,7 +2,6 @@
 
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { createRequestBody, disableRequestBody, updateRequestBody } from "../../../fixtures/request/user";
 
 describe('DELETE :: Delete User', () => {
  

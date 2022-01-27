@@ -9,7 +9,7 @@ let userId = 0;
 before('fetch the newly created test user', () => {
   cy.api({
     method: 'GET',
-    url: routes.GET_FILTER,
+    url: routes.GET_BY_USERNAME,
     auth: auth,
   }).then((response) => {
     userId = response.body.Resources[0].id;
