@@ -7,7 +7,7 @@ describe('GET :: get User', () => {
   it('Get user by UserID', () => {
     cy.api({
       method: 'GET',
-      url: routes.GET,
+      url: routes.GET_BY_ID,
       auth: auth,
     }).then((response) => {
       expect(response.status).to.equal(200);
@@ -42,7 +42,7 @@ describe('GET :: get User', () => {
   it('Get user by UserID - invalid token', () => {
     cy.api({
       method: 'GET',
-      url: routes.GET,
+      url: routes.GET_BY_ID,
       //auth: auth,
       failOnStatusCode: false,
     }).then((response) => {

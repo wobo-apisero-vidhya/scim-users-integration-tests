@@ -1,7 +1,7 @@
 export const routes={
     POST: '/scim/Users',
     
-    GET: '/scim/Users/1',
+    GET_BY_ID: '/scim/Users/1',
     GET_ALL_USERS: '/scim/Users',
     GET_INVALID_ID: '/scim/Users/abc',
     GET_FILTER: 'scim/Users?filter=userName eq wobo-employee1@wobodev.com',
