@@ -14,11 +14,11 @@ describe("POST :: create user", () => {
       body: createRequestBody,
     }).then((response) => {
       expect(response.status).to.equal(201);
-      expect(response.body.id).to.equal("55");
+      expect(response.body.userName).to.equal("john.doe@workboard.com");
     });
   });
 
-  it("Post with invalid request body", () => {
+  it("should return error - Post with invalid request body", () => {
     cy.api({
       method: "POST",
       url: routes.POST,
@@ -30,7 +30,7 @@ describe("POST :: create user", () => {
     });
   });
 
-  it('POST with invalid token', () => {
+  it('should return error - POST with invalid token', () => {
     cy.api({
       method: 'POST',
       url: routes.POST,
@@ -42,7 +42,7 @@ describe("POST :: create user", () => {
     });
   });
 
-  it("POST with already existing user", () => {
+  it("should pass successfully - POST with already existing user", () => {
     cy.api({
       method: "POST",
       url: routes.POST,
