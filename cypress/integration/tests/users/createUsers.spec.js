@@ -14,7 +14,7 @@ describe("POST :: create user", () => {
       body: createRequestBody,
     }).then((response) => {
       expect(response.status).to.equal(201);
-      expect(response.body.id).to.equal("55");
+      expect(response.body.userName).to.equal("john.doe@workboard.com");
     });
   });
 
