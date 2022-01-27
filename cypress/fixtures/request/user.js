@@ -65,7 +65,7 @@ const updateEmailRequestBodyNeg = {
             {
             "op": "Replace",
             "path": "emails[type eq \"work\"].value",
-            "value": "john.doe67@workboard.com"
+            "value": "john.doe@workboard.com"
             }
     ]
 }
