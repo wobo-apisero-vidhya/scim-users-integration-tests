@@ -86,7 +86,7 @@ describe('GET :: get User', () => {
           expect(response.status).to.equal(200);
           expect(response.body.Resources).to.exist;
           expect(response.body.Resources).to.deep.eq([]);
-          expect(response.body.totalResults).to.eq('0');
+          expect(response.body.totalResults).to.eq(0);
          });
     });
 
