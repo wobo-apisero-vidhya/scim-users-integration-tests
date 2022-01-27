@@ -1,4 +1,4 @@
-# SCIM API test framework
+# SCIM USER API test framework
 
 ## Libraries and plugins used
 
@@ -22,5 +22,11 @@ To run the tests on your terminal, run
 
 To run the tests against the Cypress Test Runner, run
 `npm run cy:open`
+
+To run the tests in browser, run 
+`npm run cy:test-browser`
+
+To run the tests against the Cypress Test Runner in browser, run 
+`npm run cy:open-browser`
 
 Once the test runner has loaded, click on the spec file you wish to test.
