@@ -2,9 +2,22 @@
 
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
+import { createRequestBody } from "../../../fixtures/request/user";
+
+let userId = 0;
+
+before('fetch the newly created test user', () => {
+  cy.api({
+    method: "POST",
+    url: routes.POST,
+    auth: auth,
+    body: createRequestBody,
+  }).then((response) => {
+    userId = response.body.id
+  });
+});
 
 describe('DELETE :: Delete User', () => {
- 
   it('Deletes a user successfully', () => {   
     cy.api({
       method: 'DELETE', 

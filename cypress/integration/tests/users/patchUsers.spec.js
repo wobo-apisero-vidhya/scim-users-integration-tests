@@ -2,7 +2,7 @@
 
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { disableRequestBody, updateRequestBody, updateEmailRequestBodyNeg, updateEmailRequestBodyPos } from "../../../fixtures/request/user";
+import { disableRequestBody, updateRequestBody, updateEmailRequestBodyNeg } from "../../../fixtures/request/user";
 
 let userId = 0;
 
@@ -44,19 +44,6 @@ describe('PATCH :: Update User', () => {
     }).then((res) => {
       expect(res.status).to.equal(400);
       expect(res.body.detail).to.equal("Resource email address is invalid, it already exists in the system!")
-    });
-  });
-
-  it('should update Email', () => {    
-    cy.api({
-      method: 'PATCH', 
-      url: routes.UPDATE + (userId),
-      auth: auth,
-      failOnStatusCode: false,
-      body: updateEmailRequestBodyPos
-    }).then((res) => {
-      expect(res.status).to.equal(200);
-      expect(res.body.id).to.equal(userId);
     });
   });
 

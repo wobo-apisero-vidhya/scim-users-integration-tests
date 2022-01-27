@@ -70,18 +70,6 @@ const updateEmailRequestBodyNeg = {
     ]
 }
 
-const randomNumber = parseInt(Math.random() * 100);
-const updateEmailRequestBodyPos = {
-    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-    "Operations": [
-            {
-            "op": "Replace",
-            "path": "emails[type eq \"work\"].value",
-            "value": "john.doe"+randomNumber+"@workboard.com"
-            }
-    ]
-}
-
 const disableRequestBody = {
     "Operations": [
         {
@@ -95,4 +83,4 @@ const disableRequestBody = {
     ]
 }
 
-export {createRequestBody, updateRequestBody, invalidCreateRequestBody, updateEmailRequestBodyPos, updateEmailRequestBodyNeg, disableRequestBody}
+export {createRequestBody, updateRequestBody, invalidCreateRequestBody, updateEmailRequestBodyNeg, disableRequestBody}
