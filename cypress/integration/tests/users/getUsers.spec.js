@@ -48,7 +48,7 @@ describe('GET :: get User', () => {
       auth: auth,
     }).then((response) => {
       expect(response.status).to.equal(200);
-      expect(response.body.Resources[0].id).to.equal('56');
+      expect(response.body.Resources[0].id).to.equal(userId);
       expect(response.body.Resources).to.exist;
      });
   });
