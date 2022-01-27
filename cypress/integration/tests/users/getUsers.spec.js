@@ -16,7 +16,7 @@ before('fetch the newly created test user', () => {
 });
 
 describe('GET :: get User', () => {
-  it('Get user by UserID', () => {
+  it('should get user by UserID', () => {
     cy.api({
       method: 'GET',
       url: routes.GET_BY_ID + userId,
@@ -30,7 +30,7 @@ describe('GET :: get User', () => {
     });
   });
 
-  it('Get all users', () => {
+  it('should get all users', () => {
     cy.api({
       method: 'GET',
       url: routes.GET_ALL_USERS,
@@ -41,7 +41,7 @@ describe('GET :: get User', () => {
     });
   });
   
-  it('Get users by filter', () => {
+  it('should get users by filter', () => {
     cy.api({
       method: 'GET',
       url: routes.GET_FILTER,
@@ -53,7 +53,7 @@ describe('GET :: get User', () => {
      });
   });
 
-  it('Get user by UserID - invalid token', () => {
+  it('should throw error - Get user by UserID - invalid token', () => {
     cy.api({
       method: 'GET',
       url: routes.GET_BY_ID + userId,
@@ -65,7 +65,7 @@ describe('GET :: get User', () => {
     });
   });
 
-  it('Get user by UserID - invalid UserID', () => {
+  it('should throw error - Get user by UserID - invalid UserID', () => {
     cy.api({
       method: 'GET',
       url: routes.GET_INVALID_ID,
@@ -77,7 +77,7 @@ describe('GET :: get User', () => {
     });
   });
 
-  it('Get user by filter - empty response', () => {
+  it('should return empty response', () => {
     cy.api({
           method: 'GET',
           url: routes.GET_FILTER_EMPTY_RES,
@@ -90,7 +90,7 @@ describe('GET :: get User', () => {
          });
     });
 
-  it('Get user by  invalid filter with response of all users from GET operation', () => {
+  it('should pass successfully - Get user by invalid filter with response of all users from GET operation', () => {
     cy.api({
           method: 'GET',
           url: routes.GET_INVALID_FILTER,

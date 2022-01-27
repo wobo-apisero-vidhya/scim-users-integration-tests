@@ -2,7 +2,7 @@
 
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { disableRequestBody, updateRequestBody, updateEmailRequestBody } from "../../../fixtures/request/user";
+import { disableRequestBody, updateRequestBody, updateEmailRequestBodyNeg, updateEmailRequestBodyPos } from "../../../fixtures/request/user";
 
 let userId = 0;
 
@@ -17,7 +17,7 @@ before('fetch the newly created test user', () => {
 });
 
 describe('PATCH :: Update User', () => {
-  it('Performs all the updates successfully', () => {    
+  it('should perform all the updates successfully', () => {    
     cy.api({
       method: 'PATCH', 
       url: routes.UPDATE + userId,
@@ -34,34 +34,33 @@ describe('PATCH :: Update User', () => {
     });
   });
 
-  it('Update existing resource', () => {    
+  it('should throw error - Trying to have two objects with same email', () => {    
     cy.api({
       method: 'PATCH', 
-      url: routes.UPDATE + userId,
-      auth: auth,
-      body: updateRequestBody 
-    }).then((res) => {
-      expect(res.status).to.equal(200);
-      expect(res.body).to.not.be.null;
-      expect(res.body.id).to.equal(userId);
-      expect(res.body.name.familyName).to.exist;
-    });
-  });
-
-  it('Update existing resource email', () => {    
-    cy.api({
-      method: 'PATCH', 
-      url: routes.UPDATE + userId,
+      url: routes.UPDATE + (userId-1),
       auth: auth,
       failOnStatusCode: false,
-      body: updateEmailRequestBody 
+      body: updateEmailRequestBodyNeg
     }).then((res) => {
       expect(res.status).to.equal(400);
       expect(res.body.detail).to.equal("Resource email address is invalid, it already exists in the system!")
     });
   });
 
-  it('Update with invalid token', () => {
+  it('should update Email', () => {    
+    cy.api({
+      method: 'PATCH', 
+      url: routes.UPDATE + (userId),
+      auth: auth,
+      failOnStatusCode: false,
+      body: updateEmailRequestBodyPos
+    }).then((res) => {
+      expect(res.status).to.equal(200);
+      expect(res.body.id).to.equal(userId);
+    });
+  });
+
+  it('should throw error - Update with invalid token', () => {
     cy.api({
       method: 'PATCH', 
       url: routes.UPDATE + userId,
@@ -78,7 +77,7 @@ describe('PATCH :: Update User', () => {
 
 
 describe('PATCH :: Disable User', () => {
-  it('Disables the user successfully', () => {
+  it('should disable the user successfully', () => {
     cy.api({
       method: 'PATCH', 
       url: routes.DISABLE + userId + "/",
@@ -93,7 +92,7 @@ describe('PATCH :: Disable User', () => {
     });
   });
 
-  it('Disable non existing user', () => {
+  it('should pass successfully - Disable non existing user', () => {
     cy.api({
       method: 'PATCH', 
       url: routes.DISABLE_INVALID_ID,
@@ -105,7 +104,7 @@ describe('PATCH :: Disable User', () => {
     });
   });
 
-  it('Disable with invalid token', () => {
+  it('should throw error - Disable with invalid token', () => {
     cy.api({
       method: 'PATCH', 
       url: routes.DISABLE + userId + "/",
