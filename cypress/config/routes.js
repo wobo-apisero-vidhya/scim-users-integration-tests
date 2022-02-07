@@ -19,4 +19,8 @@ export const routes={
     // /scim/Users/{id}
     DELETE: 'scim/Users/55',
     DELETE_INVALID_ID: 'scim/Users/someID'
+
+
+    //Teams
+    
 }
