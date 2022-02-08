@@ -41,12 +41,6 @@ const dynamicTeamUsers = [
         givenName: "hassani"  
     },
     {
-        userName: "hassan.hassani@workboard.com",
-        email: "hassan.hassani@workboard.com",
-        familyName: "hassan",
-        givenName: "hassani"  
-    },
-    {
         userName: "zahra.mcbeth@workboard.com",
         email: "zahra.mcbeth@workboard.com",
         familyName: "zahra",
@@ -124,26 +118,36 @@ const teamPayload = {
     "team_owner":"",
     "team_name":"",
     "team_type":"",
-    "team_members[0][id]":"",
-    "team_members[0][team_role]":"",
-    "team_members[1][id]":"",
-    "team_members[1][team_role]":"",
-    "team_workstream[0][name]":"",
-    "team_workstream[0][type]":"",
+    "team_members": [
+        {
+            "id": "",
+            "team_role": "",
+        }
+    ],
+    "team_workstream": [
+        {
+            "name": "Identity service",
+            "type": "1"
+        }
+    ],
     "external_id":""
 }
 
 const dynamicTeamHeirarchy = [
     {
         "team_owner":"jackie.smith@workboard.com",
-        "team_name":"Identity-Jackie",
+        "team_name":"Identity-jackie",
         "team_type":"working_group",
-        "team_members[0][id]":"",
-        "team_members[0][team_role]":"co_manager",
-        "team_members[1][id]":"",
-        "team_members[1][team_role]":"co_manager",
-        "team_workstream[0][name]":"Identity service",
-        "team_workstream[0][type]":"1",
+        "team_members": [
+            {
+                "id": "",
+                "team_role": "co-manager",
+            },
+            {
+                "id": "",
+                "team_role": "co-manager",
+            }
+        ],
         "external_id":"041"
     },
     {
@@ -151,12 +155,16 @@ const dynamicTeamHeirarchy = [
         "team_name":"Identity-jack",
         "team_type":"functional",
         "parent_team_id": "041",
-        "team_members[0][id]":"",
-        "team_members[0][team_role]":"exec_viewer",
-        "team_members[1][id]":"",
-        "team_members[1][team_role]":"co_manager",
-        "team_workstream[0][name]":"Identity service",
-        "team_workstream[0][type]":"1",
+        "team_members": [
+            {
+                "id": "",
+                "team_role": "exec_viewer",
+            },
+            {
+                "id": "",
+                "team_role": "co_manager",
+            }
+        ],
         "external_id":"042"
     },
     {
@@ -164,10 +172,16 @@ const dynamicTeamHeirarchy = [
         "team_name":"Identity-hassan",
         "team_type":"functional",
         "parent_team_id": "041",
-        "team_members[0][id]":"",
-        "team_members[0][team_role]":"co_manager",
-        "team_workstream[0][name]":"Identity service",
-        "team_workstream[0][type]":"1",
+        "team_members": [
+            {
+                "id": "",
+                "team_role": "exec_viewer",
+            },
+            {
+                "id": "",
+                "team_role": "co_manager",
+            }
+        ],
         "external_id":"043"
     },
     {
@@ -175,8 +189,6 @@ const dynamicTeamHeirarchy = [
         "team_name":"Identity-zahra",
         "team_type":"functional",
         "parent_team_id": "042",
-        "team_workstream[0][name]":"Identity service",
-        "team_workstream[0][type]":"1",
         "external_id":"044"
     },
     {
@@ -184,10 +196,12 @@ const dynamicTeamHeirarchy = [
         "team_name":"Identity-jill",
         "team_type":"functional",
         "parent_team_id": "042",
-        "team_members[0][id]":"",
-        "team_members[0][team_role]":"co_manager",
-        "team_workstream[0][name]":"Identity service",
-        "team_workstream[0][type]":"1",
+        "team_members": [
+            {
+                "id": "",
+                "team_role": "co_manager",
+            }
+        ],
         "external_id":"045"
     },
     {
@@ -195,12 +209,16 @@ const dynamicTeamHeirarchy = [
         "team_name":"Identity-mark",
         "team_type":"functional",
         "parent_team_id": "043",
-        "team_members[0][id]":"",
-        "team_members[0][team_role]":"exec_viewer",
-        "team_members[1][id]":"",
-        "team_members[1][team_role]":"co_manager",
-        "team_workstream[0][name]":"Identity service",
-        "team_workstream[0][type]":"1",
+        "team_members": [
+            {
+                "id": "",
+                "team_role": "exec_viewer",
+            },
+            {
+                "id": "",
+                "team_role": "co_manager",
+            }
+        ],
         "external_id":"046"
     },
     {
@@ -208,8 +226,6 @@ const dynamicTeamHeirarchy = [
         "team_name":"Identity-matt",
         "team_type":"functional",
         "parent_team_id": "045",
-        "team_workstream[0][name]":"Identity service",
-        "team_workstream[0][type]":"1",
         "external_id":"047"
     },
     {
@@ -217,8 +233,6 @@ const dynamicTeamHeirarchy = [
         "team_name":"Identity-virgina",
         "team_type":"functional",
         "parent_team_id": "046",
-        "team_workstream[0][name]":"Identity service",
-        "team_workstream[0][type]":"1",
         "external_id":"048"
     },
     {
@@ -226,11 +240,20 @@ const dynamicTeamHeirarchy = [
         "team_name":"Identity-andrew",
         "team_type":"functional",
         "parent_team_id": "046",
-        "team_members[0][id]":"",
-        "team_members[0][team_role]":"exec_viewer",
-        "team_workstream[0][name]":"Identity service",
-        "team_workstream[0][type]":"1",
+        "team_members": [
+            {
+                "id": "",
+                "team_role": "team_admin",
+            }
+        ],
         "external_id":"049"
+    },
+    {
+        "team_owner":"elizibath.kerby@workboard.com",
+        "team_name":"Identity-elizibath",
+        "team_type":"functional",
+        "parent_team_id": "049",
+        "external_id":"050"
     }
 ]
 
