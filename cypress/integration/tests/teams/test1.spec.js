@@ -10,21 +10,22 @@ var teamUsersMap = [{
 }]
 
 before('create new test users and form an heirarchy', () => {
-      async.forEach(dynamicTeamUsers,(user) => {
+        var async = require('async');
+        dynamicTeamUsers.forEach((user) => {
         var newRequestBody = createRequestBody
         newRequestBody.userName = user.userName
         newRequestBody.emails[0].value = user.email
         newRequestBody.name.familyName = user.familyName
         newRequestBody.name.givenName = user.givenName
-        console.log(newRequestBody)
         cy.api({
             method: "POST",
             url: routes.POST,
             auth: auth,
             body: newRequestBody,
             }).then((response) => {
+              cy.log(newRequestBody)
               console.log('created successfully')
-              console.log(response.userName)
+              console.log(response)
               // teamUsersMap.push({
               //   email: response.emails.value,
               //   id: response.id
@@ -44,7 +45,7 @@ before('create new test users and form an heirarchy', () => {
     //     });
     //   });
 });
-
+let userId = 0
 describe('GET :: get User', () => {
   it('should get user by UserID', () => {
     cy.api({
