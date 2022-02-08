@@ -41,10 +41,10 @@ const dynamicTeamUsers = [
         givenName: "hassani"  
     },
     {
-        userName: "hassan.hassani@workboard.com",
-        email: "hassan.hassani@workboard.com",
-        familyName: "hassan",
-        givenName: "hassani"  
+        userName: "ashneer.grover@workboard.com",
+        email: "ashneer.grover@workboard.com",
+        familyName: "ashneer",
+        givenName: "grover"  
     },
     {
         userName: "zahra.mcbeth@workboard.com",
@@ -127,10 +127,7 @@ const teamPayload = {
     "team_members": [
         {
             "id": "",
-            "team_role": "",
-            "first_name": "",
-            "last_name": "",
-            "email": ""
+            "team_role": ""
         }
     ],
     "team_workstream": [
