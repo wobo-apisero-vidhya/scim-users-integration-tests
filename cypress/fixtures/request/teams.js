@@ -118,8 +118,25 @@ const dynamicTeamUsers = [
         familyName: "elizibath",
         givenName: "kerby"  
     }
-
-
 ]
 
-export {createRequestBody, dynamicTeamUsers}
+
+const teamPayload = {
+    'team_owner':'1',
+    'team_name':'Testsfgd',
+    'team_type':'working_group',
+    'team_members[0][id]':'4',
+    'team_members[0][team_role]':'co_manager',
+    'team_members[1][email]':'sandesh.test2@workboard.com',
+    'team_members[1][first_name]':'Sandesh1',
+    'team_members[1][last_name]':'Test2',
+    'team_members[1][team_role]':'member',
+    'team_workstream[0][name]':'Demand Generation',
+    'team_workstream[0][type]':'1',
+    'team_workstream[1][name]':'PR',
+    'team_workstream[1][type]':'2',
+    'external_id':'4489'
+}
+
+
+export {createRequestBody, dynamicTeamUsers, teamPayload}

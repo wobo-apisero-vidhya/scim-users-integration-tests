@@ -2,12 +2,10 @@
 
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { createRequestBody, dynamicTeamUsers} from "../../../fixtures/request/teams"
+import { createRequestBody, dynamicTeamUsers, teamPayload} from "../../../fixtures/request/teams"
 
 
-
-describe("POST :: create user", () => {
-
+before('create new test users and form an heirarchy', () => {
     dynamicTeamUsers.forEach((user) => {
         var newRequestBody = createRequestBody
         newRequestBody.userName = user.userName
@@ -22,8 +20,24 @@ describe("POST :: create user", () => {
               body: newRequestBody,
             }).then((response) => {
               expect(response.status).to.equal(201);
-             // expect(response.body.userName).to.equal("john.doe@workboard.com");
             });
           });
     }) 
+
+    it("should create a new team successfully", () => {
+        cy.api({
+          method: "POST",
+          url: 'http://localhost/wb/apis/team/',
+          auth: auth,
+          body: teamPayload,
+        }).then((response) => {
+          expect(response.status).to.equal(201);
+        });
+      });
 });
+
+// describe("POST :: create user", () => {
+
+    
+
+// });
