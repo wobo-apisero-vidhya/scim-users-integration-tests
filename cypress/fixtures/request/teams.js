@@ -111,6 +111,12 @@ const dynamicTeamUsers = [
         email: "elizibath.kerby.wobo@workboard.com",
         familyName: "elizibath",
         givenName: "kerby"  
+    },
+    {
+        userName: "lisa.flat.wobo@workboard.com",
+        email: "lisa.flat.wobo@workboard.com",
+        familyName: "lisa",
+        givenName: "flat"  
     }
 ]
 
@@ -145,8 +151,16 @@ const managerUpdateBody = {
         managerEmail : 'jack.miranda.wobo@workboard.com',
     },
     {
+        userEmail : 'sanjeeve.vikas.wobo@workboard.com',
+        managerEmail : 'zahra.mcbeth.wobo@workboard.com',
+    },
+    {
         userEmail : 'jill.mill.wobo@workboard.com',
         managerEmail : 'jack.miranda.wobo@workboard.com',
+    },
+    {
+        userEmail : 'reddy.paramadhama.wobo@workboard.com',
+        managerEmail : 'jill.mill.wobo@workboard.com',
     },
     {
         userEmail : 'mark.powel.wobo@workboard.com',
@@ -157,8 +171,20 @@ const managerUpdateBody = {
         managerEmail : 'jill.mill.wobo@workboard.com',
     },
     {
+        userEmail : 'albert.lambert.wobo@workboard.com',
+        managerEmail : 'matt.almenu.wobo@workboard.com',
+    },
+    {
         userEmail : 'virgina.hemenz.wobo@workboard.com',
         managerEmail : 'mark.powel.wobo@workboard.com',
+    },
+    {
+        userEmail : 'rozanne.mcmillian.wobo@workboard.com',
+        managerEmail : 'virgina.hemenz.wobo@workboard.com',
+    },
+    {
+        userEmail : 'kelly.sergent.wobo@workboard.com',
+        managerEmail : 'virgina.hemenz.wobo@workboard.com',
     },
     {
         userEmail : 'andrew.smith.wobo@workboard.com',
@@ -167,6 +193,10 @@ const managerUpdateBody = {
     {
         userEmail : 'elizibath.kerby.wobo@workboard.com',
         managerEmail : 'andrew.smith.wobo@workboard.com',
+    },
+    {
+        userEmail : 'lisa.flat.wobo@workboard.com',
+        managerEmail : 'elizibath.kerby.wobo@workboard.com',
     }
 ]
 export {createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap}
