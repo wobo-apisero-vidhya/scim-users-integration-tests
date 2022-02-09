@@ -18,9 +18,9 @@ export const routes={
     
     // /scim/Users/{id}
     DELETE: 'scim/Users/55',
-    DELETE_INVALID_ID: 'scim/Users/someID'
+    DELETE_INVALID_ID: 'scim/Users/someID',
 
 
-    //Teams
-    
+    //Dynamic teams
+    DT_GET_BY_USERNAME: 'scim/Users?filter=userName eq '
 }
