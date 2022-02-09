@@ -23,126 +23,101 @@ const createRequestBody = {
 
 const dynamicTeamUsers = [
     {
-        userName: "jackie.smith@workboard.com",
-        email: "jackie.smith@workboard.com",
+        userName: "jackie.smith.wobo@workboard.com",
+        email: "jackie.smith.wobo@workboard.com",
         familyName: "jackie",
         givenName: "smith"
     },
     {
-        userName: "jack.miranda@workboard.com",
-        email: "jack.miranda@workboard.com",
+        userName: "jack.miranda.wobo@workboard.com",
+        email: "jack.miranda.wobo@workboard.com",
         familyName: "jack",
         givenName: "miranda"  
     },
     {
-        userName: "hassan.hassani@workboard.com",
-        email: "hassan.hassani@workboard.com",
+        userName: "hassan.hassani.wobo@workboard.com",
+        email: "hassan.hassani.wobo@workboard.com",
         familyName: "hassan",
         givenName: "hassani"  
     },
     {
-        userName: "ashneer.grover@workboard.com",
-        email: "ashneer.grover@workboard.com",
+        userName: "ashneer.grover.wobo@workboard.com",
+        email: "ashneer.grover.wobo@workboard.com",
         familyName: "ashneer",
         givenName: "grover"  
     },
     {
-        userName: "zahra.mcbeth@workboard.com",
-        email: "zahra.mcbeth@workboard.com",
+        userName: "zahra.mcbeth.wobo@workboard.com",
+        email: "zahra.mcbeth.wobo@workboard.com",
         familyName: "zahra",
         givenName: "mcbeth"  
     },
     {
-        userName: "jill.mill@workboard.com",
-        email: "jill.mill@workboard.com",
+        userName: "jill.mill.wobo@workboard.com",
+        email: "jill.mill.wobo@workboard.com",
         familyName: "jill",
         givenName: "mill"  
     },
     {
-        userName: "mark.powel@workboard.com",
-        email: "mark.powel@workboard.com",
+        userName: "mark.powel.wobo@workboard.com",
+        email: "mark.powel.wobo@workboard.com",
         familyName: "mark",
         givenName: "powel"  
     },
     {
-        userName: "sanjeeve.vikas@workboard.com",
-        email: "sanjeeve.vikas@workboard.com",
+        userName: "sanjeeve.vikas.wobo@workboard.com",
+        email: "sanjeeve.vikas.wobo@workboard.com",
         familyName: "sanjeeve",
         givenName: "vikas"  
     },
     {
-        userName: "reddy.paramadhama@workboard.com",
-        email: "reddy.paramadhama@workboard.com",
+        userName: "reddy.paramadhama.wobo@workboard.com",
+        email: "reddy.paramadhama.wobo@workboard.com",
         familyName: "reddy",
         givenName: "paramadhama"  
     },
     {
-        userName: "matt.almenu@workboard.com",
-        email: "matt.almenu@workboard.com",
+        userName: "matt.almenu.wobo@workboard.com",
+        email: "matt.almenu.wobo@workboard.com",
         familyName: "matt",
         givenName: "almenu"  
     },
     {
-        userName: "virgina.hemenz@workboard.com",
-        email: "virgina.hemenz@workboard.com",
+        userName: "virgina.hemenz.wobo@workboard.com",
+        email: "virgina.hemenz.wobo@workboard.com",
         familyName: "virgina",
         givenName: "hemenz"  
     },
     {
-        userName: "andrewa.smith@workboard.com",
-        email: "andrewa.smith@workboard.com",
+        userName: "andrewa.smith.wobo@workboard.com",
+        email: "andrewa.smith.wobo@workboard.com",
         familyName: "andrew",
         givenName: "smith"  
     },
     {
-        userName: "albert.lambert@workboard.com",
-        email: "albert.lambert@workboard.com",
+        userName: "albert.lambert.wobo@workboard.com",
+        email: "albert.lambert.wobo@workboard.com",
         familyName: "albert",
         givenName: "lambert"  
     },
     {
-        userName: "rozanne.mcmillian@workboard.com",
-        email: "rozanne.mcmillian@workboard.com",
+        userName: "rozanne.mcmillian.wobo@workboard.com",
+        email: "rozanne.mcmillian.wobo@workboard.com",
         familyName: "rozanne",
         givenName: "mcmillian"  
     },
     {
-        userName: "kelly.sergent@workboard.com",
-        email: "kelly.sergent@workboard.com",
+        userName: "kelly.sergent.wobo@workboard.com",
+        email: "kelly.sergent.wobo@workboard.com",
         familyName: "kelly",
         givenName: "sergent"  
     },
     {
-        userName: "elizibath.kerby@workboard.com",
-        email: "elizibath.kerby@workboard.com",
+        userName: "elizibath.kerby.wobo@workboard.com",
+        email: "elizibath.kerby.wobo@workboard.com",
         familyName: "elizibath",
         givenName: "kerby"  
     }
 ]
 
-const teamPayload = {
-    "team_owner":"",
-    "team_name":"",
-    "team_type":"",
-    "team_members": [
-        {
-            "id": "",
-            "team_role": ""
-        }
-    ],
-    "team_workstream": [
-        {
-            "name": "",
-            "type": ""
-        }
-    ],
-    "external_id":""
-}
-
-const dynamicTeamHeirarchy = [
-    {}
-]
-
-
-
-export {createRequestBody, dynamicTeamUsers, teamPayload}
+export {createRequestBody, dynamicTeamUsers}
