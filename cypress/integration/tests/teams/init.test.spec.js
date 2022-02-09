@@ -1,22 +1,16 @@
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { createRequestBody, dynamicTeamUsers } from "../../../fixtures/request/teams";
+import { createRequestBody, dynamicTeamUsers , managerUpdateBody, managerEmployeeMap} from "../../../fixtures/request/teams";
 
-describe('create new test users and form an heirarchy', () => {
+describe('Create new test users and form an heirarchy', () => {
   dynamicTeamUsers.forEach(user => {
-    it("should create a new team successfully", () => {
+    it("Create new test users", () => {
       let newRequestBody = createRequestBody;
-      let newUser = {
-        userName: user.userName,
-        email: user.email,
-        familyName: user.familyName,
-        givenName: user.givenName
-      };
-
-      newRequestBody.userName = newUser.userName;
-      newRequestBody.emails[0].value = newUser.email;
-      newRequestBody.name.familyName = newUser.familyName;
-      newRequestBody.name.givenName = newUser.givenName;
+      
+      newRequestBody.userName = user.userName;
+      newRequestBody.emails[0].value = user.email;
+      newRequestBody.name.familyName = user.familyName;
+      newRequestBody.name.givenName = user.givenName;
 
       cy.api({
         method: "POST",
@@ -28,4 +22,31 @@ describe('create new test users and form an heirarchy', () => {
       });
     });
   });
+
+
+  //Fetches the manager Id and updates the user
+  managerEmployeeMap.forEach(managerEmployee=>{
+    let userId = 0
+    it("Fetch employee Id", () => { 
+      cy.api({
+        method: 'GET',
+        url: routes.DT_GET_BY_USERNAME + managerEmployee.userEmail,
+        auth: auth,
+      }).then((response) => {
+        userId = response.body.Resources[0].id;
+       });
+    });
+    it("Assign manager to the user", () => { 
+      let newManagerUpdateBody = managerUpdateBody
+      newManagerUpdateBody.Operations[0].value = managerEmployee.managerEmail
+      cy.api({
+        method: "PATCH",
+        url: routes.UPDATE + userId,
+        auth: auth,
+        body: newManagerUpdateBody,
+      }).then((response) => {
+        console.log('Manager mapped successfully')
+      });
+    });
+  }) 
 });

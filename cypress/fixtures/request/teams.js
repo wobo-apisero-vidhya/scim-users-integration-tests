@@ -83,8 +83,8 @@ const dynamicTeamUsers = [
         givenName: "hemenz"  
     },
     {
-        userName: "andrewa.smith.wobo@workboard.com",
-        email: "andrewa.smith.wobo@workboard.com",
+        userName: "andrew.smith.wobo@workboard.com",
+        email: "andrew.smith.wobo@workboard.com",
         familyName: "andrew",
         givenName: "smith"  
     },
@@ -114,4 +114,59 @@ const dynamicTeamUsers = [
     }
 ]
 
-export {createRequestBody, dynamicTeamUsers, teamPayload}
+const managerUpdateBody = {
+    "schemas":[
+       "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations":[
+       {
+          "op":"Add",
+          "path":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager",
+          "value":""
+       }
+    ]
+ }
+
+ const managerEmployeeMap = [
+    {
+        userEmail : 'jackie.smith.wobo@workboard.com',
+        managerEmail : 'wobo-employee4@wobodev.com',
+    },
+    {
+        userEmail : 'jack.miranda.wobo@workboard.com',
+        managerEmail : 'jackie.smith.wobo@workboard.com',
+    },
+    {
+        userEmail : 'hassan.hassani.wobo@workboard.com',
+        managerEmail : 'jackie.smith.wobo@workboard.com',
+    },
+    {
+        userEmail : 'zahra.mcbeth.wobo@workboard.com',
+        managerEmail : 'jack.miranda.wobo@workboard.com',
+    },
+    {
+        userEmail : 'jill.mill.wobo@workboard.com',
+        managerEmail : 'jack.miranda.wobo@workboard.com',
+    },
+    {
+        userEmail : 'mark.powel.wobo@workboard.com',
+        managerEmail : 'hassan.hassani.wobo@workboard.com',
+    },
+    {
+        userEmail : 'matt.almenu.wobo@workboard.com',
+        managerEmail : 'jill.mill.wobo@workboard.com',
+    },
+    {
+        userEmail : 'virgina.hemenz.wobo@workboard.com',
+        managerEmail : 'mark.powel.wobo@workboard.com',
+    },
+    {
+        userEmail : 'andrew.smith.wobo@workboard.com',
+        managerEmail : 'mark.powel.wobo@workboard.com',
+    },
+    {
+        userEmail : 'elizibath.kerby.wobo@workboard.com',
+        managerEmail : 'andrew.smith.wobo@workboard.com',
+    }
+]
+export {createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap}

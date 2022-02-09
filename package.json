@@ -10,7 +10,10 @@
     "cy:open-browser": "cypress open --browser chrome"
   },
   "devDependencies": {
-    "@bahmutov/cy-api": "^1.6.2",
-    "cypress": "^9.3.1"
+    "@bahmutov/cy-api": "1.6.2",
+    "cypress": "9.3.1"
+  },
+  "dependencies": {
+    "async": "^3.2.3"
   }
 }
