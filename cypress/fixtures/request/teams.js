@@ -41,12 +41,6 @@ const dynamicTeamUsers = [
         givenName: "hassani"  
     },
     {
-        userName: "ashneer.grover.wobo@workboard.com",
-        email: "ashneer.grover.wobo@workboard.com",
-        familyName: "ashneer",
-        givenName: "grover"  
-    },
-    {
         userName: "zahra.mcbeth.wobo@workboard.com",
         email: "zahra.mcbeth.wobo@workboard.com",
         familyName: "zahra",
@@ -120,4 +114,4 @@ const dynamicTeamUsers = [
     }
 ]
 
-export {createRequestBody, dynamicTeamUsers}
+export {createRequestBody, dynamicTeamUsers, teamPayload}
