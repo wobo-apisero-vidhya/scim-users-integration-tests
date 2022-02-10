@@ -17,7 +17,7 @@ export const routes={
     DISABLE_INVALID_ID: 'scim/Users/someID/',
     
     // /scim/Users/{id}
-    DELETE: 'scim/Users/55',
+    DELETE: 'scim/Users/',
     DELETE_INVALID_ID: 'scim/Users/someID',
 
 
