@@ -30,7 +30,7 @@ describe('Scenario 1 - Change an L4 Individual Contributor Reporting in AAD. New
             expect(response.body.Resources[0].userName).to.equal(test_scenario_1.userEmail);
         });
         });
-    it("Assign manager to the user", () => { 
+    it("Assign new manager to the user", () => { 
         let newManagerUpdateBody = managerUpdateBody
         newManagerUpdateBody.Operations[0].value = test_scenario_1.newManagerEmail
         cy.api({
@@ -42,7 +42,7 @@ describe('Scenario 1 - Change an L4 Individual Contributor Reporting in AAD. New
             expect(response.status).to.equal(200);
             expect(response.body).to.not.be.null;
             console.log('Manager restructre successful')
-            expect(response.body.groups).to.not.equal([]);
+            expect(response.body.groups).to.exist;
             //assert that the manager of the user is updated
             expect(response.body["urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"].manager.managerEmailAddress).to.equal(test_scenario_1.newManagerEmail);
             // assert that the user is now a part of the new manager's team(group)
@@ -52,20 +52,12 @@ describe('Scenario 1 - Change an L4 Individual Contributor Reporting in AAD. New
             // assert that the user is no more a part of the old manager's team(group)
             group = response.body.groups.filter(group => group.name == test_scenario_1.oldGroupName);
             expect(group.length).to.equal(0);
-            // assert if the user's team reports to the new manager's team and not the old manager's team - the user should only be part of 2 groups
-            expect(response.body.groups.length).to.equal(2);
-            group = response.body.groups.filter(group => group.name == test_scenario_1.newGroupName);
-            expect(group.length).to.equal(1);
-            expect(group[0].name).to.equal(test_scenario_1.newGroupName);
-            group = response.body.groups.filter(group => group.name == test_scenario_1.userGroupName);
-            expect(group.length).to.equal(1);
-            expect(group[0].name).to.equal(test_scenario_1.userGroupName);
         });
     });
 
 
     //Terminating test case and restructuring hierarcy to default hierarcy 
-    it("Assign manager to the user", () => { 
+    it("Assign old manager to the user", () => { 
         let newManagerUpdateBody = managerUpdateBody
         newManagerUpdateBody.Operations[0].value = currentManger
         cy.api({
@@ -77,8 +69,6 @@ describe('Scenario 1 - Change an L4 Individual Contributor Reporting in AAD. New
             expect(response.status).to.equal(200);
             expect(response.body).to.not.be.null;
             expect(response.body["urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"].manager.managerEmailAddress).to.equal(currentManger)
-            console.log('Employee Manager map set to default successfully')
         });
     });
 }); 
-
