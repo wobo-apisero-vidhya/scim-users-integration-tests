@@ -208,6 +208,7 @@ const test_scenario_3 = {
     oldGroupName: "mill jill (jill.mill.wobo)",
     userGroupName: "almenu matt (matt.almenu.wobo)"
 }
+
 const test_scenario_1 = {
     userEmail : "albert.lambert.wobo@workboard.com",
     newManagerEmail: "virgina.hemenz.wobo@workboard.com",
