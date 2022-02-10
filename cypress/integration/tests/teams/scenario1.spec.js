@@ -2,7 +2,7 @@
 
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { createRequestBody, dynamicTeamUsers, teamPayload, managerUpdateBody ,test_scenario_1 } from "../../../fixtures/request/teams"
+import { createRequestBody, dynamicTeamUsers, teamPayload, managerUpdateBody, test_scenario_1 } from "../../../fixtures/request/teams"
 
 // Test 1: Change an L4 Individual Contributor Reporting in AAD. New reporting manager already has a team
 // Assertions in WorkBoard
@@ -13,7 +13,7 @@ import { createRequestBody, dynamicTeamUsers, teamPayload, managerUpdateBody ,te
 describe('Scenario 1 - Change an L4 Individual Contributor Reporting in AAD. New reporting manager already has a team', () => {
     let userId = 0
     let currentManger = ""
-    let group = [] 
+    let group = []
     //Assigning user to new manager
     it("Fetch user ID", () => {
         cy.api({
@@ -29,15 +29,15 @@ describe('Scenario 1 - Change an L4 Individual Contributor Reporting in AAD. New
             expect(response.body).to.not.be.null;
             expect(response.body.Resources[0].userName).to.equal(test_scenario_1.userEmail);
         });
-        });
-    it("Assign new manager to the user", () => { 
+    });
+    it("Assign new manager to the user", () => {
         let newManagerUpdateBody = managerUpdateBody
         newManagerUpdateBody.Operations[0].value = test_scenario_1.newManagerEmail
         cy.api({
-          method: "PATCH",
-          url: routes.UPDATE + userId,
-          auth: auth,
-          body: newManagerUpdateBody,
+            method: "PATCH",
+            url: routes.UPDATE + userId,
+            auth: auth,
+            body: newManagerUpdateBody,
         }).then((response) => {
             expect(response.status).to.equal(200);
             expect(response.body).to.not.be.null;
@@ -57,14 +57,14 @@ describe('Scenario 1 - Change an L4 Individual Contributor Reporting in AAD. New
 
 
     //Terminating test case and restructuring hierarcy to default hierarcy 
-    it("Assign old manager to the user", () => { 
+    it("Assign old manager to the user", () => {
         let newManagerUpdateBody = managerUpdateBody
         newManagerUpdateBody.Operations[0].value = currentManger
         cy.api({
-          method: "PATCH",
-          url: routes.UPDATE + userId,
-          auth: auth,
-          body: newManagerUpdateBody,
+            method: "PATCH",
+            url: routes.UPDATE + userId,
+            auth: auth,
+            body: newManagerUpdateBody,
         }).then((response) => {
             expect(response.status).to.equal(200);
             expect(response.body).to.not.be.null;

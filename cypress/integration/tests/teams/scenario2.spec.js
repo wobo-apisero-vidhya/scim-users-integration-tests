@@ -2,7 +2,7 @@
 
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { createRequestBody, dynamicTeamUsers, teamPayload, managerUpdateBody ,test_scenario_2} from "../../../fixtures/request/teams"
+import { createRequestBody, dynamicTeamUsers, teamPayload, managerUpdateBody, test_scenario_2 } from "../../../fixtures/request/teams"
 
 // Test 2: Change an L4 Individual Contributor Reporting in AAD. New reporting manager does not have a team
 // Assertions in WorkBoard
@@ -29,15 +29,15 @@ describe('Scenario 2 - Change an L4 Individual Contributor Reporting in AAD. New
             expect(response.body).to.not.be.null;
             expect(response.body.Resources[0].userName).to.equal(test_scenario_2.userEmail);
         });
-        });
-    it("Assign manager to the user", () => { 
+    });
+    it("Assign manager to the user", () => {
         let newManagerUpdateBody = managerUpdateBody
         newManagerUpdateBody.Operations[0].value = test_scenario_2.newManagerEmail
         cy.api({
-          method: "PATCH",
-          url: routes.UPDATE + userId,
-          auth: auth,
-          body: newManagerUpdateBody,
+            method: "PATCH",
+            url: routes.UPDATE + userId,
+            auth: auth,
+            body: newManagerUpdateBody,
         }).then((response) => {
             expect(response.status).to.equal(200);
             expect(response.body).to.not.be.null;
@@ -55,14 +55,14 @@ describe('Scenario 2 - Change an L4 Individual Contributor Reporting in AAD. New
 
 
     //Terminating test case and restructuring hierarcy to default hierarcy 
-    it("Assign manager to the user", () => { 
+    it("Assign manager to the user", () => {
         let newManagerUpdateBody = managerUpdateBody
         newManagerUpdateBody.Operations[0].value = currentManger
         cy.api({
-          method: "PATCH",
-          url: routes.UPDATE + userId,
-          auth: auth,
-          body: newManagerUpdateBody,
+            method: "PATCH",
+            url: routes.UPDATE + userId,
+            auth: auth,
+            body: newManagerUpdateBody,
         }).then((response) => {
             expect(response.status).to.equal(200);
             expect(response.body).to.not.be.null;
@@ -70,6 +70,6 @@ describe('Scenario 2 - Change an L4 Individual Contributor Reporting in AAD. New
             console.log('Employee Manager map set to default successfully')
         });
     });
-}); 
+});
 
 

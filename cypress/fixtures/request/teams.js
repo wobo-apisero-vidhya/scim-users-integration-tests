@@ -233,7 +233,23 @@ const test_scenario_4 = {
 }
 
 const test_scenario_6 = {
-    userEmail : "albert.lambert.wobo@workboard.com",
+    individualContributor :{
+        userName: "albert.lambert.wobo@workboard.com",
+        email: "albert.lambert.wobo@workboard.com",
+        familyName: "albert",
+        givenName: "lambert",
+        managerEmail: "matt.almenu.wobo@workboard.com"
+    },
+    managerUser:{
+        userName: "elizibath.kerby.wobo@workboard.com",
+        email: "elizibath.kerby.wobo@workboard.com",
+        familyName: "elizibath",
+        givenName: "kerby",
+        managerEmail: "andrew.smith.wobo@workboard.com",
+        promotedManagerEmail: "andrew.smith.wobo@workboard.com",
+        reportingUserEmail: "lisa.flat.wobo@workboard.com"
+    }
+        
 }
 
-export {createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap, test_scenario_1, test_scenario_2, test_scenario_3, test_scenario_4}
+export {createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap, test_scenario_1, test_scenario_2, test_scenario_3, test_scenario_4, test_scenario_6}
