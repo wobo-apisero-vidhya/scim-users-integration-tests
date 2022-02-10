@@ -200,6 +200,13 @@ const managerEmployeeMap = [
     }
 ]
 
+const test_scenario_1 = {
+    userEmail : "albert.lambert.wobo@workboard.com",
+    newManagerEmail: "virgina.hemenz.wobo@workboard.com",
+    newGroupName: "hemenz virgina (virgina.hemenz.wobo)",
+    oldGroupName: "almenu matt (matt.almenu.wobo)",
+}
+
 const test_scenario_3 = {
     userEmail : "matt.almenu.wobo@workboard.com",
     newManagerEmail: "virgina.hemenz.wobo@workboard.com",
@@ -209,12 +216,14 @@ const test_scenario_3 = {
     userGroupName: "almenu matt (matt.almenu.wobo)"
 }
 
-const test_scenario_1 = {
-    userEmail : "albert.lambert.wobo@workboard.com",
-    newManagerEmail: "virgina.hemenz.wobo@workboard.com",
-    newGroupName: "hemenz virgina (virgina.hemenz.wobo)",
-    oldGroupName: "almenu matt (matt.almenu.wobo)",
+const test_scenario_4 = {
+    userEmail : "matt.almenu.wobo@workboard.com",
+    newManagerEmail: "reddy.paramadhama.wobo@workboard.com",
+    oldManagerEmail: "jill.mill.wobo@workboard.com",
+    newGroupName: "paramadhama reddy (reddy.paramadhama.wobo)",
+    oldGroupName: "mill jill (jill.mill.wobo)",
+    userGroupName: "almenu matt (matt.almenu.wobo)"
 }
 
 
-export {createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap, test_scenario_1, test_scenario_3}
+export {createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap, test_scenario_1, test_scenario_3, test_scenario_4}
