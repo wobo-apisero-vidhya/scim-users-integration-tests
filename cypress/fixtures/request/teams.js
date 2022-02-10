@@ -199,4 +199,13 @@ const managerUpdateBody = {
         managerEmail : 'elizibath.kerby.wobo@workboard.com',
     }
 ]
-export {createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap}
+
+const test_scenario_1 = {
+    userEmail : "albert.lambert.wobo@workboard.com",
+    newManagerEmail: "virgina.hemenz.wobo@workboard.com",
+    newGroupName: "hemenz virgina (virgina.hemenz.wobo)",
+    oldGroupName: "mill jill (jill.mill.wobo)",
+}
+
+
+export {createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap, test_scenario_1}
