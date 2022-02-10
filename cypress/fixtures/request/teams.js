@@ -225,5 +225,17 @@ const test_scenario_4 = {
     userGroupName: "almenu matt (matt.almenu.wobo)"
 }
 
+const test_scenario_5 = {
+    L2userEmail: "jill.mill.wobo@workboard.com",
+    L2newManagerEmail : "zahra.mcbeth.wobo@workboard.com",
+    L2oldManagerEmail: "jack.miranda.wobo@workboard.com",
+    L2newGroupName: "mcbeth zahra (zahra.mcbeth.wobo)",
+    L2userGroupName: "mill jill (jill.mill.wobo)",
+    L2oldGroupName: "miranda jack (jack.miranda.wobo)",
+    L3userEmail: "reddy.paramadhama.wobo@workboard.com",
+    L3teammateEmail: "matt.almenu.wobo@workboard.com",
+    L3userGroupName: "paramadhama reddy (reddy.paramadhama.wobo)"
+}
 
-export {createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap, test_scenario_1, test_scenario_3, test_scenario_4}
+
+export {createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap, test_scenario_1, test_scenario_3, test_scenario_4, test_scenario_5}
