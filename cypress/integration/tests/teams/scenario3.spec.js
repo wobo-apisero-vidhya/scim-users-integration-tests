@@ -5,7 +5,7 @@ import { managerUpdateBody, test_scenario_3 } from "../../../fixtures/request/te
 let userId = 0;
 let group = []
 
-describe('Scenario 1 - Change an L3 Team Manager’s Reporting in AAD. New reporting manager already has a team.', () => {
+describe('Scenario 3 - Change an L3 Team Manager’s Reporting in AAD. New reporting manager already has a team.', () => {
   it("Fetch employee Id", () => {
     cy.api({
       method: 'GET',
