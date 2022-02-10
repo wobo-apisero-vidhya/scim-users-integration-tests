@@ -2,7 +2,7 @@
 
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { createRequestBody, dynamicTeamUsers, teamPayload, managerUpdateBody, test_scenario_1 } from "../../../fixtures/request/teams"
+import { managerUpdateBody, test_scenario_1 } from "../../../fixtures/request/teams"
 
 // Test 1: Change an L4 Individual Contributor Reporting in AAD. New reporting manager already has a team
 // Assertions in WorkBoard

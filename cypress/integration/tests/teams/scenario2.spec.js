@@ -2,7 +2,7 @@
 
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { createRequestBody, dynamicTeamUsers, teamPayload, managerUpdateBody, test_scenario_2 } from "../../../fixtures/request/teams"
+import { managerUpdateBody, test_scenario_2 } from "../../../fixtures/request/teams"
 
 // Test 2: Change an L4 Individual Contributor Reporting in AAD. New reporting manager does not have a team
 // Assertions in WorkBoard
@@ -71,5 +71,4 @@ describe('Scenario 2 - Change an L4 Individual Contributor Reporting in AAD. New
         });
     });
 });
-
 
