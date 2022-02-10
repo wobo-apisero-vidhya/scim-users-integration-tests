@@ -1,6 +1,6 @@
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap } from "../../../fixtures/request/teams";
+import { managerEmployeeMap } from "../../../fixtures/request/teams";
 
 describe('Create new test users and form an heirarchy', () => {
     //Fetches the manager Id and updates the user
