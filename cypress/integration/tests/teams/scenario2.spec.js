@@ -2,18 +2,22 @@
 
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { createRequestBody, dynamicTeamUsers, teamPayload, managerUpdateBody ,test_scenario_1 } from "../../../fixtures/request/teams"
+import { createRequestBody, dynamicTeamUsers, teamPayload, managerUpdateBody } from "../../../fixtures/request/teams"
 
-// Test 1: Change an L4 Individual Contributor Reporting in AAD. New reporting manager already has a team
+// Test 2: Change an L4 Individual Contributor Reporting in AAD. New reporting manager does not have a team
 // Assertions in WorkBoard
 // User’s reporting manager changes
+// A new team is created for new manager
 // User is added to new manager’s team
 // User is removed from old manager’s team
 
-describe('Scenario 1 - Change an L4 Individual Contributor Reporting in AAD. New reporting manager already has a team', () => {
+describe('Scenario 2 - Change an L4 Individual Contributor Reporting in AAD. New reporting manager does not have a team', () => {
     let userId = 0
+    const test_scenario_1 = {
+        userEmail : "albert.lambert.wobo@workboard.com",
+        newManagerEmail: "rozanne.mcmillian.wobo@workboard.com"
+    }
     let currentManger = ""
-    let group = [] 
     //Assigning user to new manager
     it("Fetch user ID", () => {
         cy.api({
@@ -42,11 +46,6 @@ describe('Scenario 1 - Change an L4 Individual Contributor Reporting in AAD. New
             expect(response.status).to.equal(200);
             expect(response.body).to.not.be.null;
             console.log('Manager restructre successful')
-            expect(response.body.groups).to.not.equal([]);
-            group = response.body.groups.filter(group => group.name == test_scenario_1.newGroupName);
-            expect(group[0].name).to.equal(test_scenario_1.newGroupName);
-            group = response.body.groups.filter(group => group.name == test_scenario_1.oldGroupName);
-            expect(group.length).to.equal(0);
         });
     });
 
@@ -65,12 +64,8 @@ describe('Scenario 1 - Change an L4 Individual Contributor Reporting in AAD. New
             expect(response.body).to.not.be.null;
             expect(response.body["urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"].manager.managerEmailAddress).to.equal(currentManger)
             console.log('Employee Manager map set to default successfully')
-            expect(response.body.groups).to.not.equal([]);
-            group = response.body.groups.filter(group => group.name == test_scenario_1.oldGroupName);
-            expect(group[0].name).to.equal(test_scenario_1.newGroupName);
-            group = response.body.groups.filter(group => group.name == test_scenario_1.newGroupName);
-            expect(group.length).to.equal(0);
         });
     });
 }); 
+
 

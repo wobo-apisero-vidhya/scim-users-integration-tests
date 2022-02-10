@@ -42,9 +42,7 @@ describe('Scenario 1 - Change an L3 Team Manager’s Reporting in AAD. New repor
       expect(group[0].name).to.equal(test_scenario_3.newGroupName);
       group = response.body.groups.filter(group => group.name == test_scenario_3.userGroupName);
       expect(group.length).to.equal(1);
-      expect(group[0].name).to.equal(test_scenario_3.userGroupName);
-      
-      
+      expect(group[0].name).to.equal(test_scenario_3.userGroupName);      
     });
   });
 });
