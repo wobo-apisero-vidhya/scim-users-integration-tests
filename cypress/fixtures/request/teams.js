@@ -203,6 +203,7 @@ const managerEmployeeMap = [
 const test_scenario_3 = {
     userEmail : "matt.almenu.wobo@workboard.com",
     newManagerEmail: "virgina.hemenz.wobo@workboard.com",
+    oldManagerEmail: "jill.mill.wobo@workboard.com",
     newGroupName: "hemenz virgina (virgina.hemenz.wobo)",
     oldGroupName: "mill jill (jill.mill.wobo)",
     userGroupName: "almenu matt (matt.almenu.wobo)"

@@ -2,10 +2,10 @@ import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
 import { managerUpdateBody, test_scenario_3 } from "../../../fixtures/request/teams";
 
-describe('Scenario 1 - Change an L3 Team Manager’s Reporting in AAD. New reporting manager already has a team.', () => {
-  let userId = 0;
-  let group = []
+let userId = 0;
+let group = []
 
+describe('Scenario 1 - Change an L3 Team Manager’s Reporting in AAD. New reporting manager already has a team.', () => {
   it("Fetch employee Id", () => {
     cy.api({
       method: 'GET',
@@ -42,7 +42,22 @@ describe('Scenario 1 - Change an L3 Team Manager’s Reporting in AAD. New repor
       expect(group[0].name).to.equal(test_scenario_3.newGroupName);
       group = response.body.groups.filter(group => group.name == test_scenario_3.userGroupName);
       expect(group.length).to.equal(1);
-      expect(group[0].name).to.equal(test_scenario_3.userGroupName);      
+      expect(group[0].name).to.equal(test_scenario_3.userGroupName);
+    });
+  });
+});
+
+describe('Undo the changes done to the setup', () => {
+  it("Assign old manager to the user", () => {
+    let newManagerUpdateBody = managerUpdateBody
+    newManagerUpdateBody.Operations[0].value = test_scenario_3.oldManagerEmail;
+    cy.api({
+      method: "PATCH",
+      url: routes.UPDATE + userId,
+      auth: auth,
+      body: newManagerUpdateBody,
+    }).then((response) => {
+      expect(response.body["urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"].manager.managerEmailAddress).to.equal(test_scenario_3.oldManagerEmail);
     });
   });
 });
