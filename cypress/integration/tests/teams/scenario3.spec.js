@@ -26,12 +26,23 @@ describe('Scenario 1 - Change an L3 Team Manager’s Reporting in AAD. New repor
       auth: auth,
       body: newManagerUpdateBody,
     }).then((response) => {
+      //assert that the manager of the user is updated
       expect(response.body["urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"].manager.managerEmailAddress).to.equal(test_scenario_3.newManagerEmail);
-      expect(response.body.groups).to.not.equal([]);
+      // assert that the user is now a part of the new manager's team(group)
+      expect(response.body.groups).to.exist;
       group = response.body.groups.filter(group => group.name == test_scenario_3.newGroupName);
       expect(group[0].name).to.equal(test_scenario_3.newGroupName);
+      // assert that the user is no more a part of the old manager's team(group)
       group = response.body.groups.filter(group => group.name == test_scenario_3.oldGroupName);
       expect(group.length).to.equal(0);
+      // assert if the user's team reports to the new manager's team and not the old manager's team - the user should only be part of 2 groups
+      expect(response.body.groups.length).to.equal(2);
+      group = response.body.groups.filter(group => group.name == test_scenario_3.newGroupName);
+      expect(group.length).to.equal(1);
+      expect(group[0].name).to.equal(test_scenario_3.newGroupName);
+      group = response.body.groups.filter(group => group.name == test_scenario_3.userGroupName);
+      expect(group.length).to.equal(1);
+      expect(group[0].name).to.equal(test_scenario_3.userGroupName);
       
       
     });
