@@ -1,4 +1,9 @@
 {
   "baseUrl": "http://localhost/wb/apis" ,
-  "authType" : "basic" 
+  "authType" : "basic" ,
+  "db": {
+    "host": "http://localhost:3306",
+    "user": "docker",
+    "password": "docker"
+  }
 }
