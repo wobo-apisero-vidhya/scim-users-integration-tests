@@ -18,7 +18,7 @@ describe('Scenario 1 - Change an L4 Individual Contributor Reporting in AAD. New
     it("Fetch user ID", () => {
         cy.api({
             method: 'GET',
-            url: routes.DT_GET_BY_USERNAME + test_scenario_1.userEmail,
+            url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_1.userEmail,
             auth: auth,
         }).then((response) => {
             userId = response.body.Resources[0].id;

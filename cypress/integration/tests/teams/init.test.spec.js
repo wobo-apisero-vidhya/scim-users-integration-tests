@@ -30,7 +30,7 @@ describe('Create new test users and form an heirarchy', () => {
     it("Fetch employee Id", () => {
       cy.api({
         method: 'GET',
-        url: routes.DT_GET_BY_USERNAME + managerEmployee.userEmail,
+        url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + managerEmployee.userEmail,
         auth: auth,
       }).then((response) => {
         userId = response.body.Resources[0].id;

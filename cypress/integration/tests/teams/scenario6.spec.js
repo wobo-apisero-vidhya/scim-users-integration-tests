@@ -10,7 +10,7 @@ describe('Scenario 6 - Remove an L4 from the organization (No email is sent)', (
     it("Fetch user ID of IC", () => {
         cy.api({
             method: 'GET',
-            url: routes.DT_GET_BY_USERNAME + test_scenario_6.individualContributor.email,
+            url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_6.individualContributor.email,
             auth: auth,
         }).then((response) => {
             userId = response.body.Resources[0].id;
@@ -66,7 +66,7 @@ describe('Scenario 6 - Remove an L4 from the organization (No email is sent)', (
     it("Fetch user ID of Manager User", () => {
         cy.api({
             method: 'GET',
-            url: routes.DT_GET_BY_USERNAME + test_scenario_6.managerUser.email,
+            url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_6.managerUser.email,
             auth: auth,
         }).then((response) => {
             userId = response.body.Resources[0].id;
@@ -88,7 +88,7 @@ describe('Scenario 6 - Remove an L4 from the organization (No email is sent)', (
     it("Fetch user ID of previously reporting IC of removed Manager", () => {
         cy.api({
             method: 'GET',
-            url: routes.DT_GET_BY_USERNAME + test_scenario_6.managerUser.reportingUserEmail,
+            url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_6.managerUser.reportingUserEmail,
             auth: auth,
         }).then((response) => {
             userId = response.body.Resources[0].id;
@@ -143,7 +143,7 @@ describe('Scenario 6 - Remove an L4 from the organization (No email is sent)', (
     it("Fetch removed manager reporting user", () => {
         cy.api({
             method: 'GET',
-            url: routes.DT_GET_BY_USERNAME + test_scenario_6.managerUser.reportingUserEmail,
+            url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_6.managerUser.reportingUserEmail,
             auth: auth,
         }).then((response) => {
             userId = response.body.Resources[0].id;
