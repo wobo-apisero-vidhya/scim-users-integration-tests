@@ -201,21 +201,21 @@ const managerEmployeeMap = [
 ]
 
 const test_scenario_1 = {
-    userEmail : "albert.lambert.wobo@workboard.com",
+    userEmail: "albert.lambert.wobo@workboard.com",
     newManagerEmail: "virgina.hemenz.wobo@workboard.com",
     newGroupName: "hemenz virgina (virgina.hemenz.wobo)",
     oldGroupName: "almenu matt (matt.almenu.wobo)",
 }
 
 const test_scenario_2 = {
-    userEmail : "albert.lambert.wobo@workboard.com",
+    userEmail: "albert.lambert.wobo@workboard.com",
     newManagerEmail: "kelly.sergent.wobo@workboard.com",
     newGroupName: "sergent kelly (kelly.sergent.wobo)",
     oldGroupName: "almenu matt (matt.almenu.wobo)",
 }
 
 const test_scenario_3 = {
-    userEmail : "matt.almenu.wobo@workboard.com",
+    userEmail: "matt.almenu.wobo@workboard.com",
     newManagerEmail: "virgina.hemenz.wobo@workboard.com",
     oldManagerEmail: "jill.mill.wobo@workboard.com",
     newGroupName: "hemenz virgina (virgina.hemenz.wobo)",
@@ -224,7 +224,7 @@ const test_scenario_3 = {
 }
 
 const test_scenario_4 = {
-    userEmail : "matt.almenu.wobo@workboard.com",
+    userEmail: "matt.almenu.wobo@workboard.com",
     newManagerEmail: "reddy.paramadhama.wobo@workboard.com",
     oldManagerEmail: "jill.mill.wobo@workboard.com",
     newGroupName: "paramadhama reddy (reddy.paramadhama.wobo)",
@@ -232,15 +232,27 @@ const test_scenario_4 = {
     userGroupName: "almenu matt (matt.almenu.wobo)"
 }
 
+const test_scenario_5 = {
+    L2userEmail: "jill.mill.wobo@workboard.com",
+    L2newManagerEmail: "zahra.mcbeth.wobo@workboard.com",
+    L2oldManagerEmail: "jack.miranda.wobo@workboard.com",
+    L2newGroupName: "mcbeth zahra (zahra.mcbeth.wobo)",
+    L2userGroupName: "mill jill (jill.mill.wobo)",
+    L2oldGroupName: "miranda jack (jack.miranda.wobo)",
+    L3userEmail: "reddy.paramadhama.wobo@workboard.com",
+    L3teammateEmail: "matt.almenu.wobo@workboard.com",
+    L3userGroupName: "paramadhama reddy (reddy.paramadhama.wobo)"
+}
+
 const test_scenario_6 = {
-    individualContributor :{
+    individualContributor: {
         userName: "albert.lambert.wobo@workboard.com",
         email: "albert.lambert.wobo@workboard.com",
         familyName: "albert",
         givenName: "lambert",
         managerEmail: "matt.almenu.wobo@workboard.com"
     },
-    managerUser:{
+    managerUser: {
         userName: "elizibath.kerby.wobo@workboard.com",
         email: "elizibath.kerby.wobo@workboard.com",
         familyName: "elizibath",
@@ -249,7 +261,17 @@ const test_scenario_6 = {
         promotedManagerEmail: "andrew.smith.wobo@workboard.com",
         reportingUserEmail: "lisa.flat.wobo@workboard.com"
     }
-        
+
 }
 
-export {createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap, test_scenario_1, test_scenario_2, test_scenario_3, test_scenario_4, test_scenario_6}
+const test_scenario_7 = {
+    userName: "matt.almenu.wobo@workboard.com",
+    email: "matt.almenu.wobo@workboard.com",
+    familyName: "matt",
+    givenName: "almenu",
+    managerEmail: "jill.mill.wobo@workboard.com",
+    promotedManagerEmail: "jill.mill.wobo@workboard.com",
+    reportingUserEmail: "albert.lambert.wobo@workboard.com"
+}
+
+export { createRequestBody, dynamicTeamUsers, managerUpdateBody, managerEmployeeMap, test_scenario_1, test_scenario_2, test_scenario_3, test_scenario_4, test_scenario_5, test_scenario_6, test_scenario_7 }

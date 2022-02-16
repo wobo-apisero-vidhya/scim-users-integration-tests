@@ -1,10 +1,10 @@
 import { routes } from "../../../config/routes";
 import auth from "../../../config/auth";
-import { createRequestBody, dynamicTeamUsers, teamPayload, managerUpdateBody, test_scenario_6 } from "../../../fixtures/request/teams"
+import { createRequestBody, managerUpdateBody, test_scenario_6 } from "../../../fixtures/request/teams"
 
 describe('Scenario 6 - Remove an L4 from the organization (No email is sent)', () => {
     
-    //Individual Contributor at L6
+    //Individual Contributor at L4
     
     let userId = 0
     it("Fetch user ID of IC", () => {
