@@ -9,7 +9,7 @@ describe('Scenario 3 - Change an L3 Team Manager’s Reporting in AAD. New repor
   it("Fetch employee Id", () => {
     cy.api({
       method: 'GET',
-      url: routes.DT_GET_BY_USERNAME + test_scenario_3.userEmail,
+      url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_3.userEmail,
       auth: auth,
     }).then((response) => {
       userId = response.body.Resources[0].id;

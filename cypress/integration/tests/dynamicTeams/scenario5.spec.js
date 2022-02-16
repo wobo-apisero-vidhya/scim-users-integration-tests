@@ -9,7 +9,7 @@ describe('Scenario 5 - Setup', () => {
   it("Fetch L2 employee Id", () => {
     cy.api({
       method: 'GET',
-      url: routes.DT_GET_BY_USERNAME + test_scenario_5.L2userEmail,
+      url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_5.L2userEmail,
       auth: auth,
     }).then((response) => {
       userId = response.body.Resources[0].id;
@@ -53,7 +53,7 @@ describe('Scenario 5 - Setup', () => {
   it("Fetch L3 employee Id", () => {
     cy.api({
       method: 'GET',
-      url: routes.DT_GET_BY_USERNAME + test_scenario_5.L3userEmail,
+      url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_5.L3userEmail,
       auth: auth,
     }).then((response) => {
       userId = response.body.Resources[0].id;
@@ -84,7 +84,7 @@ describe('Scenario 5 - Setup', () => {
   it("Fetch L3 employee Id", () => {
     cy.api({
       method: 'GET',
-      url: routes.DT_GET_BY_USERNAME + test_scenario_5.L3teammateEmail,
+      url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_5.L3teammateEmail,
       auth: auth,
     }).then((response) => {
       userId = response.body.Resources[0].id;
@@ -117,7 +117,7 @@ describe('Undo the changes done in the setup', () => {
   it("Fetch L2 employee Id", () => {
     cy.api({
       method: 'GET',
-      url: routes.DT_GET_BY_USERNAME + test_scenario_5.L2userEmail,
+      url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_5.L2userEmail,
       auth: auth,
     }).then((response) => {
       userId = response.body.Resources[0].id;
@@ -141,7 +141,7 @@ describe('Undo the changes done in the setup', () => {
   it("Fetch L3 employee Id", () => {
     cy.api({
       method: 'GET',
-      url: routes.DT_GET_BY_USERNAME + test_scenario_5.L3userEmail,
+      url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_5.L3userEmail,
       auth: auth,
     }).then((response) => {
       userId = response.body.Resources[0].id;
@@ -165,7 +165,7 @@ describe('Undo the changes done in the setup', () => {
   it("Fetch L3 employee Id", () => {
     cy.api({
       method: 'GET',
-      url: routes.DT_GET_BY_USERNAME + test_scenario_5.L3teammateEmail,
+      url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_5.L3teammateEmail,
       auth: auth,
     }).then((response) => {
       userId = response.body.Resources[0].id;

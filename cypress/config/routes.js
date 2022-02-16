@@ -22,5 +22,5 @@ export const routes={
 
 
     //Dynamic teams
-    DT_GET_BY_USERNAME: 'scim/Users?filter=userName eq '
+    DYNAMIC_TEAMS_GET_BY_USERNAME: 'scim/Users?filter=userName eq '
 }

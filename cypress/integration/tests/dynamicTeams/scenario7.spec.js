@@ -9,7 +9,7 @@ describe('Scenario 7 -  Remove an L3 manager from the organization (Email sent t
   it("Fetch user ID of Manager User", () => {
     cy.api({
       method: 'GET',
-      url: routes.DT_GET_BY_USERNAME + test_scenario_7.email,
+      url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_7.email,
       auth: auth,
     }).then((response) => {
       userId = response.body.Resources[0].id;
@@ -31,7 +31,7 @@ describe('Scenario 7 -  Remove an L3 manager from the organization (Email sent t
   it("Fetch user ID of previously reporting IC of removed Manager", () => {
     cy.api({
       method: 'GET',
-      url: routes.DT_GET_BY_USERNAME + test_scenario_7.reportingUserEmail,
+      url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_7.reportingUserEmail,
       auth: auth,
     }).then((response) => {
       userId = response.body.Resources[0].id;
@@ -88,7 +88,7 @@ describe('Undo the changes done in the setup', () => {
   it("Fetch removed manager reporting user", () => {
     cy.api({
       method: 'GET',
-      url: routes.DT_GET_BY_USERNAME + test_scenario_7.reportingUserEmail,
+      url: routes.DYNAMIC_TEAMS_GET_BY_USERNAME + test_scenario_7.reportingUserEmail,
       auth: auth,
     }).then((response) => {
       userId = response.body.Resources[0].id;
